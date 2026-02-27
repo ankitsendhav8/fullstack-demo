@@ -1,0 +1,11 @@
+URL - http://localhost:3000/auth/signup
+Method - POST
+BODY - {
+    "firstName":"Ankit",
+    "lastName":"Singh",
+    "email":"ankit@gmail.com",
+    "password":"Admin@123"
+}
+
+---------------------------------------------------------------------------------------------
+
