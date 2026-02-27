@@ -37,3 +37,26 @@ Includes a complete Postman collection for:
 Testing all backend APIs
 Understanding request/response structures
 Quick API validation during development
+
+**Tech Stack**
+
+Angular - 18.2.21
+Node - 20.19.6
+Express.js - 4.16
+
+**Project Setup & Running Instructions**
+
+git clone https://github.com/YOUR_USERNAME/full-stack-demo.git
+
+For Frontend
+  - cd full-stack-demo 
+  - npm install
+  - npm start
+It will run on - http://localhost:4200
+
+For Backend
+  - cd full-stack-demo-backend
+  - npm install
+  - npm start
+
+It will run on http://localhost:3000
