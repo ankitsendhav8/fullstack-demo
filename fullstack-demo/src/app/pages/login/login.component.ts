@@ -4,12 +4,12 @@ import { firstValueFrom } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { AlertService } from '../../services/alert.service';
 import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

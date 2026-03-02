@@ -6,8 +6,30 @@
     "email": "ankit@gmail.com",
     "password": "$2b$10$8OsK1nx//3D4.gYSc20nV.dUCWDxjUz9ImSyt3nv4mZx45CWR/quG",
     "userId": 1,
-    "accessKey": "905227_fullstack-demo_1772439525681",
+    "accessKey": "",
     "firstName": "Ramssss",
     "lastName": "Shassssyma"
+  },
+  {
+    "firstName": "Ankit Singh",
+    "lastName": "Sendhav",
+    "createdAt": "2026-03-02T08:32:57.426Z",
+    "modifiedAt": "",
+    "status": "Active",
+    "email": "anksssit@gmail.com",
+    "password": "$2b$10$ao9d5kn7Tr4r.eOwLMwWOOxhhykQB.ps4hhzRx19mcrAQExIoUDXu",
+    "userId": 2,
+    "accessKey": ""
+  },
+  {
+    "firstName": "sdf",
+    "lastName": "sdf",
+    "createdAt": "2026-03-02T08:33:11.636Z",
+    "modifiedAt": "",
+    "status": "Active",
+    "email": "asssssnkit@gmail.com",
+    "password": "$2b$10$flyF1FP92MvssOUKgkVpLe/VbsUrxjmnmz..JNg.6A3qipEWL/Qt6",
+    "userId": 3,
+    "accessKey": ""
   }
 ]
