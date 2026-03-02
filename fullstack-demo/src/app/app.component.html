@@ -1,9 +1,11 @@
-<div class=" max-w-12xl px-0">
+<div class="max-w-12xl px-0 fixed top-0 w-full">
     <app-header></app-header>
 </div>
-<div class=" max-w-12xl px-0 main-content-section">
+<div class=" max-w-12xl px-0 my-4 main-content-section">
     <router-outlet></router-outlet>
 </div>
-<div class=" max-w-12xl px-0 footer-section bg-gray-800 absolute bottom-0 w-full">
+@if(!userService.isLoggedIn){
+<div class=" max-w-12xl px-0 footer-section bg-gray-800  w-full">
     <app-footer></app-footer>
 </div>
+}

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +12,6 @@ import { FooterComponent } from './pages/footer/footer.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  public userService = inject(UserService);
 
 }

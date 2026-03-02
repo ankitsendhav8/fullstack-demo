@@ -52,6 +52,7 @@ For Frontend
   - cd full-stack-demo 
   - npm install
   - npm start
+  
 It will run on - http://localhost:4200
 
 For Backend
