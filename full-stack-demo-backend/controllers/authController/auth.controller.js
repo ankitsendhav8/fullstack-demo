@@ -96,7 +96,6 @@ class AuthController {
                 getUserDetailByEmail[0].userId
               );
               let jwtSecretKey = process.env.JWT_SECRET;
-              console.log('jwtSecretKey----',jwtSecretKey);
               let tokendata = {
                 userId: getUserDetailById[0].userId,
                 email: getUserDetailById[0].email,
@@ -121,7 +120,7 @@ class AuthController {
       } else {
         res.status(200).json({
           success: 0,
-          message: 'No user found',
+          message: 'Please enter valid credentials.',
         });
       }
     } catch (err) {
@@ -139,9 +138,7 @@ class AuthController {
         let token = req.headers.authorization.split(' ')[1];
         let isTokenVerified = GeneralFunctionService.verifyToken(token);
         if (isTokenVerified) {
-          console.log('isTokenVerified----',isTokenVerified);
           const decoded = jwtwebtoken.decode(token);
-          console.log('decoded----',decoded.userId);
           const result = AuthService.logoutUser(decoded.userId);
           if (result) {
             res.status(200).json({

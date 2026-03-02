@@ -9,9 +9,9 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                        <a routerLink="/dashboard" aria-current="page" routerLinkActive="bg-gray-900 text-warning"
+                        <a routerLink="/dashboard" routerLinkActive="bg-gray-900 text-warning"
                             [routerLinkActiveOptions]="{exact: true}"
-                            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Dashboard</a>
+                            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Dashboard</a>
                         <a routerLink="/about" routerLinkActive="bg-gray-900 text-warning"
                             [routerLinkActiveOptions]="{ exact: true }"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
@@ -49,7 +49,7 @@
                 </button>
                 }@else{
                 <button routerLink="/login"
-                    class="relative rounded-full p-1 text-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
+                    class="relative  p-1 bg-blue-700 text-white px-3 py-2 rounded-md focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
                     Login
                 </button>
                 }

@@ -35,5 +35,9 @@ export const routes: Routes = [
         canActivate: [LoginGuard],
         loadComponent: () => import('./pages/signup/signup.component').then(m => m.SignupComponent)
     },
+    {
+        path: '**',
+        loadComponent: () => import('./pages/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent)
+    },
 
 ];

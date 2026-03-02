@@ -43,9 +43,10 @@ export class TeamComponent implements OnInit {
   }
   async updateUserStatus(user: IUser) {
 
-    user.status = user.status === 'Active' ? 'Inactive' : 'Active';
-    this.alertService.confirmMessage('Alert', `Are you sure you want to update the user status to ${user.status}?`, 'warning').then(async (result) => {
+   let newStatus = user.status === 'Active' ? 'Inactive' : 'Active';
+    this.alertService.confirmMessage('Alert', `Are you sure you want to update the user status to ${newStatus}?`, 'warning').then(async (result) => {
       if (result.value) {
+        user.status = newStatus;
         this.alertService.displayLoader(true);
         let res: any = await firstValueFrom(this.apiService.updateUserDetail(user));
         if (res.success) {

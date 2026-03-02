@@ -46,7 +46,7 @@ Express.js - 4.16
 
 **Project Setup & Running Instructions**
 
-git clone https://github.com/YOUR_USERNAME/full-stack-demo.git
+git clone https://github.com/ankitsendhav8/fullstack-demo.git
 
 For Frontend
   - cd full-stack-demo 
