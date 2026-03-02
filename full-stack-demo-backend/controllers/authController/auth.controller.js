@@ -79,7 +79,7 @@ class AuthController {
             if (!isMatch) {
               res.status(200).json({
                 success: 0,
-                message: 'Invalid credential',
+                message: 'Please enter valid credentials.',
               });
             } else {
               let accessKey =

@@ -11,7 +11,7 @@ class UserService {
 
     if (oldUserRecords) {
       let selectedRecord = JSON.parse(oldUserRecords).filter((user) => user.userId == id);
-      const { modifiedAt, password,accessKey, ...safeUser } = selectedRecord[0];
+      const { modifiedAt, password, accessKey, ...safeUser } = selectedRecord[0];
       return [safeUser];
     } else {
       return [];
@@ -37,7 +37,14 @@ class UserService {
   getUsersList = () => {
     let oldUserRecords = fs.readFileSync(DATA_FILE, 'utf8');
     if (oldUserRecords) {
-      return JSON.parse(oldUserRecords);
+      let records = JSON.parse(oldUserRecords);
+      console.log('records----',records);
+      let allUserRecords = records.map((user) => {
+        const { password, accessKey, ...safeUser } = user;
+        return safeUser;
+      });
+      console.log('allUserRecords----',allUserRecords);
+      return allUserRecords;
     } else {
       return [];
     }

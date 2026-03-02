@@ -18,7 +18,7 @@ import { APP_CONSTANTS } from '../constants/app.constant';
 export class HttpsInterceptor implements HttpInterceptor {
   public token: string = '';
   public serviceUrl: string = 'http://localhost:3000/';
-  private readonly excludedEndpoints: string[] = ['/login', '/signup'];
+  private readonly excludedEndpoints: string[] = ['/login', '/signup', '/contact-us'];
 
   constructor(
     private userService: UserService,

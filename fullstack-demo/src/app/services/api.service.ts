@@ -23,10 +23,10 @@ export class ApiService {
   getAllUserList(data: any): Observable<any> {
     return this.http.post(`user/list`, data);
   }
-  updateUserDetail(userId: number, data: any): Observable<any> {
-    return this.http.put(`user/${userId}`, data);
+  updateUserDetail(data: any): Observable<any> {
+    return this.http.put(`user/${data.userId}`, data);
   }
   contactUsDetails(data: any): Observable<any> {
-    return this.http.put(`user/`, data);
+    return this.http.post(`contact`, data);
   }
 }

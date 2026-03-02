@@ -22,19 +22,30 @@
                         @if(userService.isLoggedIn){
                         <a routerLink="/team" routerLinkActive="bg-gray-900 text-warning"
                             [routerLinkActiveOptions]="{exact: true}"
-                            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Users</a>
+                            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">My Team</a>
                         }
                     </div>
                 </div>
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 @if(userService.isLoggedIn){
-                <span class="userName">
-                    Welcome
-                    <b>{{ userService.getUserDetail().fullName }}</b></span>
-                <button type="button"
-                    class="relative rounded-full p-1 text-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
-                    Logout
+                <span class="userName text-info mr-2">
+                    <div class="col-span-full">
+                        <div class="mt-2 flex items-center text-white gap-x-3">
+                           Hey, <b>{{ userService.getUserDetail().firstName }}</b>
+                            
+                            <svg viewBox="0 0 24 24" fill="currentColor" data-slot="icon" aria-hidden="true"
+                                class="size-12 text-gray-300">
+                                <path
+                                    d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                                    clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                </span>
+                <button type="button" (click)="userService.logout()"
+                    class="relative p-1 bg-red-500 text-white px-4 py-2 rounded-md">
+                    <i class="fa fa-sign-out text-white"></i> Logout
                 </button>
                 }@else{
                 <button routerLink="/login"

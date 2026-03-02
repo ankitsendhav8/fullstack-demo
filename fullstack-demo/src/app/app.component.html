@@ -1,11 +1,20 @@
-<div class="max-w-12xl px-0 fixed top-0 w-full">
+<div class="fixed top-0 w-full z-50">
     <app-header></app-header>
 </div>
-<div class=" max-w-12xl px-0 my-4 main-content-section">
-    <router-outlet></router-outlet>
+
+<div class="page-wrapper">
+    <main class="main-content">
+        <router-outlet></router-outlet>
+    </main>
+
+    @if(!userService.isLoggedIn){
+    <div class="w-full">
+        <app-footer></app-footer>
+    </div>
+    }
 </div>
-@if(!userService.isLoggedIn){
-<div class=" max-w-12xl px-0 footer-section bg-gray-800  w-full">
-    <app-footer></app-footer>
+@if(isLoading){
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999]">
+    <div class="w-14 h-14 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
 </div>
 }

@@ -1,1 +1,70 @@
-<p>team works!</p>
+<div class="bg-white shadow-md rounded-2xl p-6">
+    <h2 class="text-xl font-semibold mb-4">Users List</h2>
+    <div class="overflow-x-auto">
+        <table class="min-w-full text-sm text-left text-gray-600">
+            <thead class="bg-gray-100 text-gray-700 uppercase text-xs">
+                <tr>
+                    <th class="px-6 py-3">Name</th>
+                    <th class="px-6 py-3">Email</th>
+                    <th class="px-6 py-3">Created At</th>
+                    <th class="px-6 py-3">Last Modified</th>
+                    <th class="px-6 py-3">Status</th>
+                    <th class="px-6 py-3 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                @for(user of usersList; track user.userId){
+                <tr class="hover:bg-gray-50 transition">
+                    <td class="px-6 py-4 font-medium text-gray-900">{{user.firstName}} {{user.lastName}}</td>
+                    <td class="px-6 py-4">{{user.email}}</td>
+                    <td class="px-6 py-4">{{user.createdAt | date:'dd/MM/yyyy HH:mm'}}</td>
+                    <td class="px-6 py-4">{{user.modifiedAt | date:'dd/MM/yyyy HH:mm'}}</td>
+                    <td class="px-6 py-4 cursor-pointer" (click)="updateUserStatus(user)">
+                        <span
+                            [ngClass]="{'bg-green-100 text-green-700': user.status === 'Active', 'bg-red-100 text-red-700': user.status === 'Inactive'}"
+                            class="px-3 py-1 text-xs font-medium rounded-full">{{user.status}}</span>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <i class="fa fa-eye text-blue-600" (click)="viewUserDetails(user)"></i>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<ng-template #viewUserDetailsModal let-viewUserDetailsModalPopup>
+    <div class="modal-header">
+        <h5 class="modal-title">User Details</h5>
+        <button type="button" class="btn-close" aria-label="Close"
+            (click)="viewUserDetailsModalPopup.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-base/7 font-semibold text-gray-900">First Name</h2>
+                <p class="mt-1 text-sm/6 text-gray-600">{{selectedUser.firstName}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-base/7 font-semibold text-gray-900">Last Name</h2>
+                <p class="mt-1 text-sm/6 text-gray-600">{{selectedUser.lastName}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-base/7 font-semibold text-gray-900">Email</h2>
+                <p class="mt-1 text-sm/6 text-gray-600">{{selectedUser.email}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-base/7 font-semibold text-gray-900">Status</h2>
+                <p class="mt-1 text-sm/6 text-gray-600">{{selectedUser.status}}</p>
+            </div>
+        </div>
+    </div>
+</ng-template>

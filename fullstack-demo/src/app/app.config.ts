@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { HttpsInterceptor } from './interceptor/https.interceptor';
+import { provideSweetAlert2 } from "@sweetalert2/ngx-sweetalert2";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,10 @@ export const appConfig: ApplicationConfig = {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpsInterceptor,
       multi: true
-    }
+    },
+    provideSweetAlert2({
+      fireOnInit: false,
+      dismissOnDestroy: true,
+  }),
   ]
 };

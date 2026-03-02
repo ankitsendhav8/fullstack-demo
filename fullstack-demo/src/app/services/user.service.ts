@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { LocalstorageService } from './localstorage.service';
 import { ApiService } from './api.service';
 import { APP_CONSTANTS } from '../constants/app.constant';
 import { IUser } from '../constants/user';
+import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +15,7 @@ export class UserService {
   public isLoggedIn: boolean = false;
   public isloading: boolean = false;
   public userDetails!: IUser;
-  notify = new Subject<{ option: string; value: any }>();
-  notifyObservable$ = this.notify.asObservable();
+  public alertService = inject(AlertService);
 
   constructor(
     private localstorageService: LocalstorageService,
@@ -26,11 +26,6 @@ export class UserService {
     this.userDetails = JSON.parse(
       this.localstorageService.getDetail(APP_CONSTANTS.USER)
     );
-  }
-  notifyOther(data: { option: string; value: any }): void {
-    if (data) {
-      this.notify.next(data);
-    }
   }
   /* Check user is logged in or not*/
   isUserLoggedIn() {
@@ -43,9 +38,9 @@ export class UserService {
   }
   /* Logout the user, in api side clearing the access key so can't use the token anymore */
   logout() {
-    this.apiService.logout(this.userDetails['id']).subscribe((resp) => {
+    this.apiService.logout(this.userDetails['userId']).subscribe((resp) => {
       if (resp && resp.success) {
-        this.notifyOther({ option: 'logout', value: true });
+        this.alertService.notifyOther({ option: 'logout', value: true });
         this.isLoggedIn = false;
         this.router.navigateByUrl('login');
         this.localstorageService.clearAllDetail();
@@ -64,5 +59,13 @@ export class UserService {
     if (event.code === 'Space') {
       event.preventDefault();
     }
+  }
+  setUserData(data: IUser) {
+    let { access_token, access_key, ...userData } = data;
+    this.userDetails = userData;
+    this.isLoggedIn = true;
+    this.localstorageService.setDetail(APP_CONSTANTS.USER, JSON.stringify(userData));
+    this.localstorageService.setDetail(APP_CONSTANTS.AUTH_TOKEN, access_token);
+    this.localstorageService.setDetail(APP_CONSTANTS.ACCESS_KEY, access_key);
   }
 }

@@ -1,3 +1,10 @@
-.main-content-section{
- overflow-y: auto;
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 64px; // offset for fixed header (h-16)
+}
+
+.main-content {
+  flex: 1;
 }
