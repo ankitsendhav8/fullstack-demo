@@ -3,11 +3,22 @@
     "firstName": "Ankit",
     "lastName": "Sendhav",
     "createdAt": "2026-03-24T16:26:48.214Z",
-    "modifiedAt": "",
-    "status": "Active",
+    "modifiedAt": "2026-03-24T16:32:54.428Z",
+    "status": "Inactive",
     "email": "ankit@mailinator.com",
     "password": "$2b$10$heBWNFvkyghkQMVW2YNN9.MS/9N4wN85JrI1lqODoeLgrkPs2yU62",
     "userId": 1,
     "accessKey": ""
+  },
+  {
+    "firstName": "atharv",
+    "lastName": "singh",
+    "createdAt": "2026-03-24T16:30:21.585Z",
+    "modifiedAt": "",
+    "status": "Active",
+    "email": "atharv@mailinator.com",
+    "password": "$2b$10$k0snHsmalrEfn4tsK08vqOLSfZYaU2J7cDI.EGt1evm9NUzpmmG9S",
+    "userId": 2,
+    "accessKey": "667864_fullstack-demo_1774370046430"
   }
 ]

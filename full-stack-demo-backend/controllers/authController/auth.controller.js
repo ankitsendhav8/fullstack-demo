@@ -95,7 +95,7 @@ class AuthController {
               let getUserDetailById = AuthService.getUserDetailById(
                 getUserDetailByEmail[0].userId
               );
-              let jwtSecretKey = process.env.JWT_SECRET;
+              let jwtSecretKey = 'HGNIS_1202_VRAHTA';
               let tokendata = {
                 userId: getUserDetailById[0].userId,
                 email: getUserDetailById[0].email,
@@ -133,7 +133,7 @@ class AuthController {
   logout = async (req, res) => {
     try {
 
-      
+
       if (req.headers && req.headers.authorization) {
         let token = req.headers.authorization.split(' ')[1];
         let isTokenVerified = GeneralFunctionService.verifyToken(token);
